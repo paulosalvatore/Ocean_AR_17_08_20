@@ -381,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577329398}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
   m_Children: []
   m_Father: {fileID: 2065043426}
@@ -616,6 +616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayManager: {fileID: 53542914}
   targetMarker: {fileID: 1577329398}
+  spherePrefab: {fileID: 90271159748576889, guid: eebaa1c18f2a0134b834786898f5833b,
+    type: 3}
 --- !u!1 &2142138452
 GameObject:
   m_ObjectHideFlags: 0

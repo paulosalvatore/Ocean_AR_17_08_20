@@ -10,6 +10,8 @@ public class ARPlacement : MonoBehaviour
 
     public GameObject targetMarker;
 
+    public GameObject spherePrefab;
+
     void Start()
     {
         targetMarker.SetActive(false);
@@ -42,5 +44,11 @@ public class ARPlacement : MonoBehaviour
         }
 
         // Detectar que o usuário clicou na tela e fazer uma ação
+        if (Input.GetMouseButtonDown(0))
+        {
+            var obj = Instantiate(spherePrefab, transform.position, Quaternion.identity);
+
+            obj.transform.Translate(obj.transform.up);
+        }
     }
 }
