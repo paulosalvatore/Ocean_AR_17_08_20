@@ -8,15 +8,39 @@ public class ARPlacement : MonoBehaviour
 {
     public ARRaycastManager rayManager;
 
-    // Start is called before the first frame update
+    public GameObject targetMarker;
+
     void Start()
     {
-        
+        targetMarker.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        var x = Screen.width / 2;
+        var y = Screen.height / 2;
+
+        var screenCenter = new Vector2(x, y);
+
+        var hitResults = new List<ARRaycastHit>();
+
+        var trackableType = TrackableType.Planes;
+
+        rayManager.Raycast(screenCenter, hitResults, trackableType);
+
+        // Atualizar a posição do target marker
+        if (hitResults.Count > 0)
+        {
+            transform.SetPositionAndRotation(
+                hitResults[0].pose.position,
+                hitResults[0].pose.rotation
+            );
+
+            if (!targetMarker.activeInHierarchy) {
+                targetMarker.SetActive(true);
+            }
+        }
+
+        // Detectar que o usuário clicou na tela e fazer uma ação
     }
 }

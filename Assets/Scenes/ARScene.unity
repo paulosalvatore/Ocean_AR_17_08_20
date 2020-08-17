@@ -615,6 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayManager: {fileID: 53542914}
+  targetMarker: {fileID: 1577329398}
 --- !u!1 &2142138452
 GameObject:
   m_ObjectHideFlags: 0
