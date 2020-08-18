@@ -11,6 +11,8 @@ public class ARPlacementSpider : MonoBehaviour
 
     public SpiderMovement spider;
 
+    private bool firstHit;
+
     private void Update()
     {
         var hitResults = new List<ARRaycastHit>();
@@ -29,13 +31,18 @@ public class ARPlacementSpider : MonoBehaviour
             {
                 targetMarker.SetActive(true);
             }
+
+            if (!firstHit) {
+                firstHit = true;
+            }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && firstHit)
         {
             spider.targetPosition = transform.position;
 
             if (!spider.gameObject.activeInHierarchy) {
+                spider.transform.position = transform.position;
                 spider.gameObject.SetActive(true);
             }
         }
