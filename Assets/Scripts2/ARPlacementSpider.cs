@@ -9,7 +9,7 @@ public class ARPlacementSpider : MonoBehaviour
 
     public ARRaycastManager rayManager;
 
-    public GameObject spawnPrefab;
+    public SpiderMovement spider;
 
     private void Update()
     {
@@ -33,9 +33,11 @@ public class ARPlacementSpider : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            var obj = Instantiate(spawnPrefab, transform.position, Quaternion.identity);
+            spider.targetPosition = transform.position;
 
-            obj.transform.Translate(transform.up);
+            if (!spider.gameObject.activeInHierarchy) {
+                spider.gameObject.SetActive(true);
+            }
         }
     }
 }
